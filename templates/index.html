@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klasifikasi Tekanan Darah</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, select, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+        .result p {
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Klasifikasi Tekanan Darah</h1>
+        <form method="POST">
+            <label for="sistolik">Tekanan Sistolik (mmHg):</label>
+            <input type="number" id="sistolik" name="sistolik" required>
+            <label for="diastolik">Tekanan Diastolik (mmHg):</label>
+            <input type="number" id="diastolik" name="diastolik" required>
+
+            <!-- Additional Inputs -->
+            <label for="age">Usia (Tahun):</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="gender">Jenis Kelamin:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Laki-laki</option>
+                <option value="female">Perempuan</option>
+            </select>
+
+            <label for="lifestyle">Gaya Hidup:</label>
+            <select id="lifestyle" name="lifestyle" required>
+                <option value="healthy">Sehat</option>
+                <option value="poor">Kurang Sehat</option>
+            </select>
+
+            <label for="diet">Kebiasaan Makan:</label>
+            <select id="diet" name="diet" required>
+                <option value="healthy">Sehat</option>
+                <option value="poor">Kurang Sehat</option>
+            </select>
+
+            <label for="physical_activity">Tingkat Aktivitas Fisik:</label>
+            <select id="physical_activity" name="physical_activity" required>
+                <option value="high">Tinggi</option>
+                <option value="medium">Sedang</option>
+                <option value="low">Rendah</option>
+            </select>
+
+            <label for="family_history">Riwayat Keluarga Hipertensi:</label>
+            <select id="family_history" name="family_history" required>
+                <option value="yes">Ya</option>
+                <option value="no">Tidak</option>
+            </select>
+
+            <button type="submit">Klasifikasi</button>
+        </form>
+
+        {% if hasil %}
+        <div class="result">
+            <strong>Hasil: {{ hasil }}</strong>
+            <p>{{ solusi }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
